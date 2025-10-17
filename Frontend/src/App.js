@@ -11,7 +11,7 @@ function App() {
     setMessages(prev => [...prev, { sender: "user", text: query }]);
 
     try {
-      const res = await fetch(`https://<your-backend>.onrender.com/ask?q=${encodeURIComponent(query)}`);
+     const res = await fetch(`https://claragpt.onrender.com/ask?q=${encodeURIComponent(query)}`);
       const data = await res.json();
       setMessages(prev => [...prev, { sender: "bot", text: data.answer }]);
     } catch (error) {
