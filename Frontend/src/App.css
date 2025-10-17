@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 2rem;
+}
+
+.chatbox {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  width: 80%;
+  max-width: 600px;
+  margin: 1rem auto;
+  height: 400px;
+  overflow-y: scroll;
+  background: #f9f9f9;
+}
+
+.user-msg { text-align: right; margin: 0.5rem; color: #0b5ed7; }
+.bot-msg  { text-align: left;  margin: 0.5rem; color: #198754; }
+
+input { width: 70%; padding: 0.5rem; margin-right: 0.5rem; }
+button { padding: 0.5rem 1rem; }
