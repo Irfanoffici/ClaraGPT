@@ -6,35 +6,37 @@ function App() {
   const [messages, setMessages] = useState([]);
   const chatEndRef = useRef(null);
 
-  const BACKEND_URL = "https://claragpt.vercel.app/api";
-
-  // Auto-scroll when messages update
+  // Scroll to bottom on new message
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   const sendMessage = async () => {
-    if (!query) return;
+    if (!query.trim()) return;
 
-    setMessages(prev => [...prev, { sender: "user", text: query }]);
+    // Add user message
+    setMessages((prev) => [...prev, { sender: "user", text: query }]);
 
     try {
-      const res = await fetch(`${BACKEND_URL}/ask?q=${encodeURIComponent(query)}`);
+      const res = await fetch(
+        `https://claragpt.vercel.app/api/ask?q=${encodeURIComponent(query)}`
+      );
       const data = await res.json();
 
-      setMessages(prev => [
-        ...prev,
-        {
-          sender: "bot",
-          text: data.answer,
-          citations: data.citations || []
-        }
-      ]);
+      setMessages((prev) => [...prev, { sender: "bot", text: data.answer }]);
     } catch (error) {
-      setMessages(prev => [...prev, { sender: "bot", text: "⚠️ Error fetching response" }]);
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: "⚠️ Error fetching response" },
+      ]);
+      console.error(error);
     }
 
     setQuery("");
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") sendMessage();
   };
 
   return (
@@ -42,26 +44,24 @@ function App() {
       <h1>ClaraGPT Chat</h1>
       <div className="chatbox">
         {messages.map((m, i) => (
-          <div key={i} className={m.sender === "user" ? "user-msg" : "bot-msg"}>
-            <div>{m.text}</div>
-            {m.citations && m.citations.length > 0 && (
-              <div className="citations">
-                {m.citations.map((c, j) => (
-                  <div key={j} className="citation">{c}</div>
-                ))}
-              </div>
-            )}
+          <div
+            key={i}
+            className={m.sender === "user" ? "user-msg" : "bot-msg"}
+          >
+            {m.text}
           </div>
         ))}
         <div ref={chatEndRef}></div>
       </div>
-      <input
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-        placeholder="Ask a medical question..."
-      />
-      <button onClick={sendMessage}>Send</button>
+      <div className="input-area">
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyPress={handleKeyPress}
+          placeholder="Ask a medical question..."
+        />
+        <button onClick={sendMessage}>Send</button>
+      </div>
     </div>
   );
 }
