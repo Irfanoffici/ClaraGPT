@@ -1,5 +1,6 @@
 fastapi
 uvicorn[standard]
+mangum
 langchain
 langchain-community
 chromadb
