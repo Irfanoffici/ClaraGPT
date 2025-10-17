@@ -10,6 +10,14 @@ import google.generativeai as genai
 import os
 
 app = FastAPI(title="ClaraGPT")
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://your-frontend.vercel.app"],  # replace with your frontend URL
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"],
+)
 
 # 🔹 Gemini API (get key from Vercel environment variables)
 genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
