@@ -1,13 +1,23 @@
-# ClaraGPT
+# ClaraGPT Medical Assistant
 
-A Retrieval-Augmented Generation medical chatbot that provides accurate, citation-backed answers.
+A RAG-powered medical chatbot providing accurate, citation-backed health information.
 
-## API Usage
+## 🚀 Quick Start
 
-**Endpoint:** `POST /ask`
+### Local Development
+```bash
+# 1. Clone and setup
+git clone https://github.com/Irfanoffici/ClaraGPT.git
+cd ClaraGPT
 
-**Request:**
-```json
-{
-  "question": "What is hypertension?"
-}
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Setup environment
+cp .env.example .env
+# Edit .env and add your Groq API key
+
+# 4. Run ClaraGPT
+python app.py
+
+# 5. Access at http://localhost:8000
