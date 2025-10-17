@@ -3,10 +3,10 @@ import os
 
 def fetch_medical_data():
     urls = [
-        # Replace with your own GitHub raw URLs later
-        "https://raw.githubusercontent.com/<username>/<repo>/main/data/medical.txt",
-        "https://raw.githubusercontent.com/<username>/<repo>/main/data/diseases.txt"
-    ]
+    "https://raw.githubusercontent.com/prasertcbs/disease-symptom-description-dataset/master/dataset.csv",
+    "https://raw.githubusercontent.com/awesomedata/awesome-public-datasets/master/Health/README.md",
+    "https://raw.githubusercontent.com/openmedlab/datahub/main/README.md"
+]
     os.makedirs("data", exist_ok=True)
     combined_text = ""
 
