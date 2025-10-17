@@ -18,7 +18,6 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://claragpt.vercel.app",  # Replace with your frontend URL
-        "http://localhost:3000"               # Optional: local dev
     ],
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
