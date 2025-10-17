@@ -1,15 +1,15 @@
 # main.py
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import chromadb
 from sentence_transformers import SentenceTransformer
 import groq
 import os
 import uvicorn
-from typing import List, Optional
+from typing import List
 from datetime import datetime
-import secrets
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -127,10 +127,10 @@ def initialize_embedding_model():
         return None
 
 def initialize_vector_db():
-    """Initialize ChromaDB vector database"""
+    """Initialize ChromaDB vector database with persistence"""
     try:
-        client = chromadb.Client()
-        collection = client.create_collection(name="clara_medical_knowledge")
+        client = chromadb.PersistentClient(path="./chroma_db")
+        collection = client.get_or_create_collection(name="clara_medical_knowledge")
         print("✅ Vector database initialized successfully!")
         return collection
     except Exception as e:
@@ -189,6 +189,9 @@ Depression: Mood disorder with persistent sadness. Symptoms: depressed mood, los
         
         if current_section:
             chunks.append(current_section.strip())
+        
+        # Clear existing data and add new
+        collection.delete(where={})
         
         # Add to vector database
         for i, chunk in enumerate(chunks):
@@ -256,8 +259,7 @@ CLARAGPT MEDICAL RESPONSE:"""
             messages=[{"role": "user", "content": prompt}],
             model="llama2-70b-4096",
             temperature=0.1,
-            max_tokens=800,
-            timeout=30
+            max_tokens=800
         )
         
         return chat_completion.choices[0].message.content
@@ -407,9 +409,9 @@ async def rate_limit_handler(request, exc):
 
 if __name__ == "__main__":
     uvicorn.run(
-        "main:app",
+        app,
         host="0.0.0.0",
         port=8000,
-        reload=False,  # Set to True for development
+        reload=False,
         log_level="info"
     )
