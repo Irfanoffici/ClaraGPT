@@ -13,3 +13,4 @@ python-dotenv
 requests
 wikipedia
 beautifulsoup4
+google-generativeai
