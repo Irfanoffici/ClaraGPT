@@ -1,6 +1,9 @@
 fastapi
 uvicorn
-langchain
+requests
 chromadb
+langchain
 sentence-transformers
 google-generativeai
+wikipedia
+pandas
