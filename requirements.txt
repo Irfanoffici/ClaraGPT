@@ -1,1 +1,6 @@
-
+fastapi
+uvicorn
+chromadb
+sentence-transformers
+groq
+python-multipart
