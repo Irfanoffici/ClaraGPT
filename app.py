@@ -268,3 +268,10 @@ async def startup_event():
 
 if __name__ == "__main__":
     uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+
+#run after importing everything
+
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
+
+#Temporary end code
