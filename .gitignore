@@ -21,3 +21,8 @@ logs/
 
 # Data files (if large)
 data/large_dataset/
+
+.env
+__pycache__/
+*.pyc
+chroma_db/
