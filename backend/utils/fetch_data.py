@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 import wikipedia
+from io import StringIO
 
 # ✅ Cache results globally to avoid repeated fetching in serverless environment
 _cached_medical_text = None
@@ -16,7 +17,7 @@ def fetch_from_github(urls):
             filename = url.split("/")[-1]
 
             if filename.endswith(".csv"):
-                df = pd.read_csv(pd.compat.StringIO(r.text))
+                df = pd.read_csv(StringIO(r.text))  # use StringIO
                 text_data = ""
                 for _, row in df.iterrows():
                     row_text = " | ".join([f"{col}: {str(row[col])}" for col in df.columns])
@@ -60,4 +61,5 @@ def fetch_medical_data():
 
     # Cache in memory
     _cached_medical_text = combined
-    print(f"✅ Combined data length: {len(combined)}"
+    print(f"✅ Combined data length: {len(combined)}")
+    return combined
