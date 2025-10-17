@@ -1,7 +1,10 @@
-Hypertension (high blood pressure): A condition where the force of blood against artery walls is too high. Normal BP is below 120/80 mmHg. Stage 1 hypertension is 130-139/80-89 mmHg. Treatment includes lifestyle changes and medications like ACE inhibitors.
+# Cardiovascular Diseases
+Hypertension: Also known as high blood pressure, is a condition where the blood pressure in the arteries is persistently elevated. Normal blood pressure is 120/80 mmHg. Stage 1 hypertension is 130-139/80-89 mmHg. Risk factors include family history, obesity, and high salt intake. Treatment involves lifestyle modifications and medications like ACE inhibitors or diuretics.
 
-Diabetes Type 2: A chronic condition that affects how your body processes blood sugar. Symptoms include increased thirst, frequent urination, and blurred vision. Management involves diet, exercise, and medications like metformin.
+Diabetes Mellitus Type 2: A metabolic disorder characterized by high blood sugar, insulin resistance, and relative lack of insulin. Symptoms include increased thirst (polydipsia), frequent urination (polyuria), increased hunger (polyphagia), and blurred vision. Long-term complications include cardiovascular disease, stroke, and kidney failure. Management includes diet, exercise, metformin, and possibly insulin therapy.
 
-Influenza (Flu): A viral infection that attacks your respiratory system. Symptoms include fever, cough, sore throat, muscle aches, and fatigue. Prevention includes annual vaccination and good hygiene practices.
+Influenza: An acute viral infection of the respiratory tract. Symptoms include sudden onset of fever, cough (usually dry), headache, muscle and joint pain, severe malaise, sore throat, and runny nose. The cough can be severe and can last 2 or more weeks. Annual vaccination is the most effective way to prevent infection.
 
-Asthma: A condition where your airways narrow and swell, producing extra mucus. This can make breathing difficult. Common triggers include allergens, exercise, and respiratory infections. Treatment involves inhalers and avoiding triggers.
+Asthma: A chronic inflammatory disease of the airways characterized by variable and recurring symptoms, reversible airflow obstruction, and bronchospasm. Common symptoms include wheezing, coughing, chest tightness, and shortness of breath. Treatment involves bronchodilators for quick relief and inhaled corticosteroids for long-term control.
+
+Migraine: A primary headache disorder characterized by recurrent headaches that are moderate to severe. Typically, episodes affect one side of the head, are pulsating in nature, and last from a few hours to three days. Associated symptoms may include nausea, vomiting, and sensitivity to light, sound, or smell. Preventive medications include beta blockers and anticonvulsants.
